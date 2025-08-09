@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3182ce;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#63b3ed;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a365d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d3748;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Animated background circle -->
+  <circle cx="30" cy="30" r="25" fill="url(#logoGradient)" opacity="0.1">
+    <animate attributeName="r" values="25;28;25" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.1;0.2;0.1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Main shield with pulsing animation -->
+  <path d="M15 20 L30 15 L45 20 L45 35 C45 42 37.5 47 30 50 C22.5 47 15 42 15 35 Z" 
+        fill="url(#logoGradient)" 
+        stroke="none"
+        filter="url(#glow)">
+    <animate attributeName="opacity" values="1;0.8;1" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- AI chip pattern inside shield with sequential animation -->
+  <rect x="22" y="22" width="16" height="16" rx="2" fill="white" opacity="0.3"/>
+  
+  <rect x="24" y="24" width="3" height="3" rx="0.5" fill="white">
+    <animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="0s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="28" y="24" width="3" height="3" rx="0.5" fill="white">
+    <animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="0.3s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="33" y="24" width="3" height="3" rx="0.5" fill="white">
+    <animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="0.6s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="24" y="28" width="3" height="3" rx="0.5" fill="white">
+    <animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="0.9s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="33" y="28" width="3" height="3" rx="0.5" fill="white">
+    <animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="1.2s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="24" y="32" width="3" height="3" rx="0.5" fill="white">
+    <animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="28" y="32" width="3" height="3" rx="0.5" fill="white">
+    <animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="1.8s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="33" y="32" width="3" height="3" rx="0.5" fill="white">
+    <animate attributeName="opacity" values="1;0.3;1" dur="3s" begin="2.1s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Company text with typing effect -->
+  <text x="65" y="25" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="url(#textGradient)">
+    BGV
+    <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0.5s" fill="freeze"/>
+  </text>
+  <text x="65" y="42" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="500" fill="#4a5568">
+    EXPERTS
+    <animate attributeName="opacity" values="0;1" dur="0.5s" begin="1s" fill="freeze"/>
+  </text>
+  
+  <!-- Animated AI indicator -->
+  <circle cx="175" cy="15" r="8" fill="#10b981" opacity="0.2">
+    <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.4;0.2" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="175" y="18" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="600" fill="#10b981" text-anchor="middle">
+    AI
+    <animate attributeName="opacity" values="1;0.5;1" dur="1s" repeatCount="indefinite"/>
+  </text>
+  
+  <!-- Animated tagline -->
+  <text x="65" y="52" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="400" fill="#718096">
+    Powered by Artificial Intelligence
+    <animate attributeName="opacity" values="0;1" dur="0.5s" begin="1.5s" fill="freeze"/>
+  </text>
+  
+  <!-- Data flow animation -->
+  <g opacity="0.4">
+    <circle cx="120" cy="20" r="1" fill="#3182ce">
+      <animate attributeName="cx" values="120;140;160;180" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="120" cy="25" r="1" fill="#63b3ed">
+      <animate attributeName="cx" values="120;140;160;180" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="120" cy="30" r="1" fill="#3182ce">
+      <animate attributeName="cx" values="120;140;160;180" dur="2s" begin="0.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;1;1;0" dur="2s" begin="0.6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
