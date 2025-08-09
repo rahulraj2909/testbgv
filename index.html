@@ -4,8 +4,61 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BGV Company - Background Verification</title>
+  <!-- DYNAMIC DEVICE DETECTION -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="mobile.css" />
+  
+  <!-- Enhanced Device Detection Script -->
+  <script>
+    (function() {
+      // Enhanced mobile detection
+      const screenWidth = window.innerWidth;
+      const userAgent = navigator.userAgent.toLowerCase();
+      
+      // Multiple mobile detection methods
+      const isMobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile|phone|tablet/i.test(userAgent);
+      const isMobileScreen = screenWidth <= 768;
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      
+      // Final mobile determination (any condition makes it mobile)
+      const isMobile = isMobileScreen || isMobileUA || isTouchDevice;
+      const isDesktop = !isMobile;
+      
+      // Debug information
+      console.log('🔍 Device Detection Debug:', {
+        screenWidth: screenWidth,
+        userAgent: userAgent.substring(0, 100),
+        isMobileUA: isMobileUA,
+        isMobileScreen: isMobileScreen,
+        isTouchDevice: isTouchDevice,
+        finalDecision: isMobile ? 'MOBILE' : 'DESKTOP'
+      });
+      
+      // Add device class to HTML
+      document.documentElement.classList.add(isMobile ? 'device-mobile' : 'device-desktop');
+      
+      // Load appropriate CSS
+      const cssFile = isMobile ? 'mobile.css' : 'desktop.css';
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cssFile;
+      document.head.appendChild(link);
+      
+      // Store device info globally
+      window.deviceInfo = {
+        isMobile: isMobile,
+        isDesktop: isDesktop,
+        screenWidth: screenWidth,
+        userAgent: navigator.userAgent,
+        detectionMethod: {
+          byScreen: isMobileScreen,
+          byUserAgent: isMobileUA,
+          byTouch: isTouchDevice
+        }
+      };
+      
+      console.log('✅ Device detected:', isMobile ? 'MOBILE' : 'DESKTOP', 'CSS:', cssFile);
+    })();
+  </script>
 </head>
 <body>
 
@@ -25,10 +78,9 @@
     <span></span>
     <span></span>
   </div>
-  <!-- Device indicator for testing -->
-  <div class="device-indicator">
-    <span class="desktop-indicator">🖥️ Desktop CSS</span>
-    <span class="mobile-indicator">📱 Mobile CSS</span>
+  <!-- Dynamic Device Indicator -->
+  <div class="device-indicator" id="device-indicator">
+    <span id="device-status">🔍 Detecting...</span>
   </div>
 </header>
 
@@ -54,15 +106,15 @@
     <div class="card-grid">
       <div class="card">
         <h2>Veteran Team</h2>
-        <p>Founded by industry professionals with 15+ years of combined BGV experience. We've learned from the best and built something better - faster, smarter, and more reliable.</p>
+        <p>15+ years combined BGV experience. Industry expertise meets startup innovation for faster, smarter verification.</p>
       </div>
       <div class="card-light">
-        <h2>Multi-Dimensional Data Analysis</h2>
-        <p>Latest AI tools scan 50+ data sources simultaneously, identifying behavioral patterns, digital footprints, and correlation matrices. Our algorithms process everything from social media activity to financial patterns for complete candidate profiling.</p>
+        <h2>AI-Powered Intelligence</h2>
+        <p>50+ data sources scanned simultaneously. Advanced algorithms detect patterns across social, financial, and digital footprints.</p>
       </div>
       <div class="card">
         <h2>Agile & Fast</h2>
-        <p>Startup agility means quick turnarounds and personalized service. We're building our reputation on reliability, accuracy, and exceptional customer experience.</p>
+        <p>Startup speed with enterprise quality. Quick turnarounds, personalized service, exceptional accuracy.</p>
       </div>
     </div>
   </div>
@@ -148,7 +200,7 @@
 <section class="section ai-tech-section">
   <div class="container">
     <div class="section-header">
-      <h2>Advanced AI Data Point Analysis</h2>
+      <h2>Advanced Data Analysis</h2>
       <p class="section-subtitle">Latest AI tools identify, analyze and correlate 500+ unique data points for comprehensive candidate intelligence</p>
     </div>
     
@@ -412,6 +464,126 @@
   // Add loading state management
   window.addEventListener('load', () => {
     document.body.classList.add('loaded');
+  });
+
+  // DEVICE-SPECIFIC CONTENT ADAPTATION
+  document.addEventListener('DOMContentLoaded', () => {
+    const deviceInfo = window.deviceInfo;
+    const deviceIndicator = document.getElementById('device-status');
+    
+    if (deviceInfo) {
+      // Update device indicator with detailed info
+      const deviceIcon = deviceInfo.isMobile ? '📱' : '🖥️';
+      const deviceName = deviceInfo.isMobile ? 'Mobile' : 'Desktop';
+      const cssFile = deviceInfo.isMobile ? 'Mobile CSS' : 'Desktop CSS';
+      
+      // Show detection method for debugging
+      const detectionReason = deviceInfo.detectionMethod.byScreen ? 'Screen' : 
+                             deviceInfo.detectionMethod.byUserAgent ? 'UserAgent' : 
+                             deviceInfo.detectionMethod.byTouch ? 'Touch' : 'Unknown';
+      
+      deviceIndicator.innerHTML = `${deviceIcon} ${deviceName} - ${cssFile} (${detectionReason}) W:${deviceInfo.screenWidth}px`;
+      deviceIndicator.style.color = deviceInfo.isMobile ? '#4ade80' : '#3b82f6';
+      deviceIndicator.style.fontSize = '0.7rem';
+      
+      console.log('📊 Device Indicator Updated:', {
+        device: deviceName,
+        css: cssFile,
+        reason: detectionReason,
+        width: deviceInfo.screenWidth
+      });
+      
+      // Add device-specific classes to body
+      document.body.classList.add(deviceInfo.isMobile ? 'mobile-device' : 'desktop-device');
+      
+      // Device-specific content adjustments
+      if (deviceInfo.isMobile) {
+        // Mobile-specific adjustments
+        adaptForMobile();
+      } else {
+        // Desktop-specific adjustments
+        adaptForDesktop();
+      }
+      
+      console.log(`✅ Device adaptation complete for ${deviceName}`, {
+        screenWidth: deviceInfo.screenWidth,
+        userAgent: deviceInfo.userAgent.substring(0, 50) + '...',
+        cssLoaded: cssFile
+      });
+    }
+  });
+
+  function adaptForMobile() {
+    // Mobile-specific content and behavior adaptations
+    const heroText = document.querySelector('.hero-overlay p');
+    if (heroText && heroText.textContent.length > 200) {
+      // Shorter text for mobile
+      heroText.textContent = 'Advanced AI tools identify 500+ unique data points for comprehensive candidate intelligence and fraud detection.';
+    }
+    
+    // Optimize mobile navigation
+    const navLinks = document.querySelectorAll('#nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        // Auto-close mobile menu after navigation
+        setTimeout(() => {
+          document.getElementById('nav').classList.remove('active');
+          document.getElementById('menu-toggle').classList.remove('active');
+        }, 100);
+      });
+    });
+    
+    console.log('📱 Mobile adaptations applied');
+  }
+
+  function adaptForDesktop() {
+    // Desktop-specific content and behavior adaptations
+    
+    // Enhanced hover effects for desktop
+    const cards = document.querySelectorAll('.card, .service-box, .ai-feature-card, .data-category');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-5px) scale(1.02)';
+        card.style.transition = 'all 0.3s ease';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+    
+    // Desktop-specific navigation enhancements
+    const navLinks = document.querySelectorAll('#nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        link.style.transform = 'translateY(-2px)';
+        link.style.transition = 'all 0.2s ease';
+      });
+      
+      link.addEventListener('mouseleave', () => {
+        link.style.transform = 'translateY(0)';
+      });
+    });
+    
+    console.log('🖥️ Desktop adaptations applied');
+  }
+
+  // Handle window resize for responsive behavior
+  window.addEventListener('resize', () => {
+    const newWidth = window.innerWidth;
+    const currentDevice = newWidth <= 768 ? 'mobile' : 'desktop';
+    const bodyClasses = document.body.classList;
+    
+    // Update body classes on resize
+    if (currentDevice === 'mobile' && !bodyClasses.contains('mobile-device')) {
+      bodyClasses.remove('desktop-device');
+      bodyClasses.add('mobile-device');
+      console.log('📱 Switched to mobile layout');
+    } else if (currentDevice === 'desktop' && !bodyClasses.contains('desktop-device')) {
+      bodyClasses.remove('mobile-device');
+      bodyClasses.add('desktop-device');
+      console.log('🖥️ Switched to desktop layout');
+    }
   });
 </script>
 
