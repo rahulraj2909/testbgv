@@ -135,7 +135,7 @@ nav a:hover::before {
   transition: var(--transition);
 }
 
-/* Mobile Navigation */
+/* Mobile Navigation and Hero Optimizations */
 @media (max-width: 768px) {
   header {
     padding: 1rem;
@@ -171,6 +171,105 @@ nav a:hover::before {
     padding: 1rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
+  
+  /* Mobile Hero - Clean and Professional */
+  .hero {
+    min-height: 80vh;
+    padding: 2rem 1rem;
+    background: 
+      linear-gradient(135deg, rgba(26, 54, 93, 0.95) 0%, rgba(45, 55, 72, 0.9) 100%),
+      url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png') center center / cover no-repeat;
+    animation: none;
+  }
+  
+  .hero::before,
+  .hero::after {
+    display: none; /* Remove complex overlays for clean mobile design */
+  }
+  
+  .hero-overlay {
+    max-width: 100%;
+    padding: 0 1rem;
+    text-align: center;
+  }
+  
+  .hero-overlay h1 {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    font-weight: 700;
+  }
+  
+  .hero-overlay p {
+    font-size: clamp(1rem, 4vw, 1.1rem);
+    max-width: 100%;
+    margin: 0 auto 2.5rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .cta-button:first-child {
+    background: #3b82f6;
+    color: white;
+    border: 2px solid #3b82f6;
+  }
+  
+  .cta-button.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Better section spacing on mobile */
+  .section {
+    padding: 3rem 1rem;
+    margin: 0;
+  }
+  
+  .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .section-header {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .section-header h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  
+  .section-header p {
+    font-size: clamp(0.9rem, 4vw, 1rem);
+    line-height: 1.5;
+    color: #666;
+  }
 }
 
 /* Hero Section with Multiple Image Layers */
@@ -182,11 +281,11 @@ nav a:hover::before {
   justify-content: center;
   text-align: center;
   background: 
-    url('IMG-20250809-WA0085.jpg') center center / cover no-repeat,
-    url('IMG-20250809-WA0085.jpg') left center / cover no-repeat,
-    url('IMG-20250809-WA0085.jpg') right center / cover no-repeat,
-    url('IMG-20250809-WA0085.jpg') center top / cover no-repeat,
-    url('IMG-20250809-WA0085.jpg') center bottom / cover no-repeat;
+    url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png') center center / cover no-repeat,
+    url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png') left center / cover no-repeat,
+    url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png') right center / cover no-repeat,
+    url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png') center top / cover no-repeat,
+    url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png') center bottom / cover no-repeat;
   overflow: hidden;
   animation: heroParallax 20s ease-in-out infinite;
 }
@@ -207,6 +306,18 @@ nav a:hover::before {
   75% { 
     background-position: right center, center bottom, left center, center top, right bottom;
     transform: scale(1.02);
+  }
+}
+
+/* Simplified animation for mobile devices */
+@keyframes heroParallaxMobile {
+  0%, 100% { 
+    background-position: center center, left center, right center;
+    transform: scale(1);
+  }
+  50% { 
+    background-position: center top, left top, right bottom;
+    transform: scale(1.01);
   }
 }
 
@@ -242,9 +353,9 @@ nav a:hover::before {
   right: 0;
   bottom: 0;
   background-image: 
-    url('IMG-20250809-WA0085.jpg'),
-    url('IMG-20250809-WA0085.jpg'),
-    url('IMG-20250809-WA0085.jpg'),
+    url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png'),
+    url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png'),
+    url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png'),
     radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.2) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.2) 0%, transparent 50%),
     radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.1) 0%, transparent 50%);
@@ -1266,30 +1377,109 @@ footer p {
 
 /* Responsive AI Section */
 @media (max-width: 768px) {
+  /* Mobile AI Section Fixes */
   .ai-features-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    padding: 0;
+    margin: 0;
   }
   
   .ai-feature-card {
     padding: 1.5rem;
+    margin: 0 auto;
+    max-width: 100%;
+    text-align: center;
   }
   
   .ai-process-flow {
     padding: 2rem 1rem;
+    margin: 2rem 0;
   }
   
   .process-steps {
     flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
   }
   
   .step-arrow {
     transform: rotate(90deg);
-    margin: 1rem 0;
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
   }
   
   .step {
+    margin-bottom: 0;
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  /* Mobile Card Grid Fixes */
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .card, .card-light {
+    padding: 1.5rem;
+    margin: 0 auto;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  /* Mobile Feature List Fixes */
+  .feature-list {
+    padding: 0;
+    margin: 2rem 0;
+  }
+  
+  .feature-list li {
+    padding: 1rem;
     margin-bottom: 1rem;
+    text-align: left;
+    border-left: 4px solid #3b82f6;
+    background: #f8fafc;
+    border-radius: 8px;
+  }
+  
+  .feature-list strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #1e40af;
+    font-size: 1.1rem;
+  }
+  
+  /* Mobile Data Points Section */
+  .data-points-showcase {
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+  }
+  
+  .data-categories {
+    gap: 1.5rem;
+  }
+  
+  .data-category {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .data-category h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .data-category ul {
+    padding-left: 1rem;
+  }
+  
+  .data-category li {
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 }
 
@@ -1387,23 +1577,124 @@ footer p {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  /* Mobile Services Section */
   .services-container {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    padding: 0;
+    margin: 0;
   }
   
   .service-box {
     padding: 2rem 1.5rem;
+    margin: 0 auto;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .service-icon {
+    margin: 0 auto 1.5rem;
+  }
+  
+  .service-box h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+  
+  .service-box p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* Mobile Contact Section */
+  .contact-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .contact-info {
+    width: 100%;
+  }
+  
+  .contact-item {
+    padding: 1rem 0;
+    text-align: center;
+  }
+  
+  .map-container {
+    width: 100%;
+    height: 300px;
+    margin-top: 2rem;
   }
 }
 
 @media (max-width: 480px) {
+  /* Small Mobile Optimizations */
   .service-box {
     padding: 1.5rem 1rem;
   }
   
   .service-box h3 {
     font-size: 1.25rem;
+  }
+  
+  /* Small mobile hero fixes */
+  .hero {
+    min-height: 70vh;
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .hero-overlay {
+    padding: 0 0.5rem;
+  }
+  
+  .hero-overlay h1 {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-overlay p {
+    font-size: clamp(0.9rem, 4vw, 1rem);
+    max-width: 100%;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-button {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
+    max-width: 250px;
+  }
+  
+  /* Small mobile section fixes */
+  .section {
+    padding: 2rem 0.5rem;
+  }
+  
+  .section-header h2 {
+    font-size: clamp(1.3rem, 6vw, 1.8rem);
+  }
+  
+  .section-header p {
+    font-size: clamp(0.85rem, 4vw, 0.95rem);
+  }
+  
+  .card, .card-light {
+    padding: 1.25rem;
+  }
+  
+  .ai-feature-card {
+    padding: 1.25rem;
+  }
+  
+  .data-category {
+    padding: 1.25rem;
+  }
+  
+  .contact-item {
+    padding: 0.75rem 0;
   }
 }
 
