@@ -182,11 +182,11 @@ nav a:hover::before {
   justify-content: center;
   text-align: center;
   background: 
-    url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png') center center / cover no-repeat,
-    url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png') left center / cover no-repeat,
-    url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png') right center / cover no-repeat,
-    url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png') center top / cover no-repeat,
-    url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png') center bottom / cover no-repeat;
+    url('IMG-20250809-WA0085.jpg') center center / cover no-repeat,
+    url('IMG-20250809-WA0085.jpg') left center / cover no-repeat,
+    url('IMG-20250809-WA0085.jpg') right center / cover no-repeat,
+    url('IMG-20250809-WA0085.jpg') center top / cover no-repeat,
+    url('IMG-20250809-WA0085.jpg') center bottom / cover no-repeat;
   overflow: hidden;
   animation: heroParallax 20s ease-in-out infinite;
 }
@@ -242,9 +242,9 @@ nav a:hover::before {
   right: 0;
   bottom: 0;
   background-image: 
-    url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png'),
-    url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png'),
-    url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png'),
+    url('IMG-20250809-WA0085.jpg'),
+    url('IMG-20250809-WA0085.jpg'),
+    url('IMG-20250809-WA0085.jpg'),
     radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.2) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.2) 0%, transparent 50%),
     radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.1) 0%, transparent 50%);
