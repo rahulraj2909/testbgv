@@ -1,0 +1,84 @@
+/* Desktop-specific CSS - Clean separation from mobile */
+/* This file ONLY loads on screens wider than 768px */
+
+/* Desktop Card Overrides - Ensure dark blue theme */
+@media screen and (min-width: 769px) {
+  /* Force desktop background */
+  body {
+    background: var(--background-light) !important;
+    color: var(--text-primary) !important;
+  }
+  
+  /* All card types - Dark blue gradient */
+  .card,
+  .data-category,
+  .service-box,
+  .ai-feature-card,
+  .step,
+  .feature-list li,
+  .contact-item,
+  .stat {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%) !important;
+    color: white !important;
+    box-shadow: var(--shadow-lg) !important;
+    border-radius: var(--border-radius) !important;
+    padding: 2rem !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  /* White cards stay white */
+  .card-light,
+  .contact-info .card-light,
+  .contact-info-section .card-light {
+    background: var(--background-white) !important;
+    color: var(--text-primary) !important;
+    box-shadow: var(--shadow-md) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  }
+  
+  /* Data category accent border */
+  .data-category {
+    border-left: 4px solid var(--accent-light) !important;
+  }
+  
+  /* All text in dark cards - white */
+  .card *,
+  .data-category *,
+  .service-box *,
+  .ai-feature-card *,
+  .step *,
+  .feature-list li *,
+  .contact-item *,
+  .stat * {
+    color: white !important;
+  }
+  
+  /* Paragraph text - slightly transparent for hierarchy */
+  .card p,
+  .data-category li,
+  .service-box p,
+  .ai-feature-card p,
+  .step p,
+  .feature-list li span,
+  .contact-item p,
+  .stat span {
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+  
+  /* Keep white card text dark */
+  .card-light *,
+  .contact-info .card-light *,
+  .contact-info-section .card-light * {
+    color: var(--text-primary) !important;
+  }
+  
+  /* Ensure AI section is visible */
+  .ai-tech-section,
+  .section.ai-tech-section {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
