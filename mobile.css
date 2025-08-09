@@ -1,6 +1,23 @@
 /* Mobile-specific CSS for BGV Experts Website */
 /* This file contains optimized styles for mobile devices */
 
+/* Ensure CSS variables are available for mobile */
+:root {
+  --primary-color: #1a365d;
+  --secondary-color: #2d3748;
+  --accent-color: #4299e1;
+  --accent-light: #63b3ed;
+  --text-color: #2d3748;
+  --text-light: #4a5568;
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --background-white: #ffffff;
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
+
 /* Mobile-only Media Queries */
 @media (max-width: 768px) {
   /* Mobile Header - Logo and Menu Same Line */
@@ -112,7 +129,7 @@
   
   /* Mobile Hero - Compact Layout */
   .hero {
-    min-height: 70vh;
+    min-height: 60vh;
     padding: 0;
     position: relative;
     background: 
@@ -156,15 +173,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5rem 1.5rem 2rem;
+    padding: 2rem 1.5rem 1.5rem;
     text-align: center;
     z-index: 2;
   }
   
   .hero-overlay h1 {
-    font-size: clamp(1.6rem, 6vw, 2.2rem);
-    line-height: 1.3;
-    margin-bottom: 1rem;
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
     margin-top: 0;
     text-align: center;
     font-weight: 600;
@@ -172,8 +189,8 @@
   }
   
   .hero-overlay p {
-    font-size: clamp(0.85rem, 3vw, 0.95rem);
-    margin-bottom: 1.2rem;
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
+    margin-bottom: 1rem;
     line-height: 1.4;
     opacity: 0.9;
   }
@@ -188,27 +205,38 @@
   
   .cta-button {
     width: auto;
-    min-width: 120px;
-    max-width: 160px;
-    padding: 0.8rem 1.2rem;
+    min-width: 140px;
+    max-width: 180px;
+    padding: 0.8rem 1rem;
     font-size: 0.85rem;
     flex: 1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   
   /* Mobile Sections - Minimal Spacing */
   .section {
-    padding: clamp(1rem, 3vw, 1.5rem) 0.8rem;
+    padding: clamp(1rem, 3vw, 1.5rem) 1rem;
     background: transparent;
     margin-bottom: 0 !important;
     position: relative;
   }
   
+  /* AI Tech Section - Reduced spacing */
+  .ai-tech-section {
+    padding: 1rem 1rem !important;
+  }
+  
   /* Contact section specific styling */
   #contact.section {
-    background: linear-gradient(135deg, rgba(26, 54, 93, 0.1) 0%, rgba(45, 55, 72, 0.15) 100%) !important;
-    border-radius: 12px;
+    background: rgba(45, 55, 72, 0.9) !important;
+    border: 1px solid rgba(74, 144, 226, 0.4) !important;
+    border-radius: 16px;
     margin: 1rem 0.5rem !important;
     padding: 1.5rem 1rem !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4) !important;
+    color: #ffffff !important;
   }
   
   .section + .section {
@@ -216,22 +244,56 @@
   }
   
   body {
-    background: linear-gradient(135deg, rgba(26, 54, 93, 0.08) 0%, rgba(45, 55, 72, 0.12) 100%) !important;
+    background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%) !important;
     min-height: 100vh;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    color: #ffffff;
   }
   
-  /* Enhanced Card Styling - No White Background */
+  /* Enhanced Card Styling - Dark Theme Cards (Mobile Only) */
   .card, .card-light, .service-box, .ai-feature-card, .data-category, .data-points-showcase {
-    background: transparent !important;
-    backdrop-filter: none !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: none !important;
+    background: rgba(45, 55, 72, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(74, 144, 226, 0.3) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
     margin-bottom: 1rem !important;
-    border-radius: 8px !important;
-    padding: 1rem 0.8rem !important;
+    border-radius: 16px !important;
+    padding: 1.5rem 1rem !important;
+    color: #ffffff !important;
+  }
+  
+  /* Force card-light to match card styling in main sections */
+  .card-grid .card-light {
+    background: rgba(45, 55, 72, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(74, 144, 226, 0.3) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+    color: #ffffff !important;
+  }
+  
+  .card-grid .card-light h2,
+  .card-grid .card-light p,
+  .card-grid .card h2,
+  .card-grid .card p {
+    color: #ffffff !important;
+    font-family: 'Inter', sans-serif !important;
+  }
+  
+  .card-grid .card-light h2,
+  .card-grid .card h2 {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.6rem !important;
+  }
+  
+  .card-grid .card-light p,
+  .card-grid .card p {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
   }
   
   .container {
@@ -259,7 +321,7 @@
     font-size: clamp(1.1rem, 4vw, 1.4rem);
     margin-bottom: 0.6rem;
     line-height: 1.3;
-    color: var(--text-color) !important;
+    color: #ffffff !important;
     font-weight: 600;
   }
   
@@ -267,19 +329,28 @@
     font-size: clamp(0.8rem, 2.5vw, 0.85rem);
     line-height: 1.4;
     opacity: 0.9 !important;
-    color: var(--text-light) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
   }
   
-  /* Fix "Let's Get Started" section */
+  /* Fix "Let's Get Started" section - Dark Theme */
   #contact .section-header h2 {
-    color: var(--text-color) !important;
+    color: #ffffff !important;
     font-weight: 700;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   }
   
   #contact .section-header p {
-    color: var(--text-light) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
     opacity: 0.9 !important;
+  }
+  
+  /* All section headers for dark theme */
+  .section-header h2 {
+    color: #ffffff !important;
+  }
+  
+  .section-header p, .section-subtitle {
+    color: rgba(255, 255, 255, 0.8) !important;
   }
   
   /* Mobile Card Grid - Compact Spacing */
@@ -295,33 +366,41 @@
     margin-bottom: 0 !important;
   }
   
-  .card h2, .card h3 {
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
+  .card h2, .card h3, .card-light h2, .card-light h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.6rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    font-family: 'Inter', sans-serif !important;
   }
   
-  .card p {
-    font-size: 0.8rem;
-    line-height: 1.4;
-    margin-bottom: 0;
+  .card p, .card-light p {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 0 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-align: center !important;
+    font-family: 'Inter', sans-serif !important;
   }
   
-  /* Mobile AI Features - Ultra Simple */
+  /* Mobile AI Features - Consistent Card Style */
   .ai-features-grid {
     display: block;
     margin-top: 1rem;
+    gap: 0.8rem;
   }
   
   .ai-feature-card {
-    padding: 0.8rem 0;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    margin-bottom: 1rem;
+    padding: 1.2rem 1rem !important;
+    background: rgba(45, 55, 72, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(74, 144, 226, 0.3) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 16px !important;
+    margin-bottom: 0.8rem !important;
     text-align: left;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   .ai-icon {
@@ -329,28 +408,45 @@
   }
   
   .ai-feature-card h3 {
-    font-size: 0.9rem;
-    margin-bottom: 0.3rem;
-    font-weight: 600;
-    line-height: 1.2;
-    color: var(--text-color);
+    font-size: 1.1rem !important;
+    margin-bottom: 0.6rem !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    font-family: 'Inter', sans-serif !important;
   }
   
   .ai-feature-card p {
-    font-size: 0.8rem;
-    line-height: 1.3;
-    margin: 0;
-    opacity: 0.8;
-    color: var(--text-light);
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-align: center !important;
+    font-family: 'Inter', sans-serif !important;
   }
   
   .ai-stats {
-    gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
   }
   
   .stat {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.75rem;
+    background: rgba(74, 144, 226, 0.2) !important;
+    border-radius: 8px;
+    border: 1px solid rgba(74, 144, 226, 0.4) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    flex: 1;
+    min-width: 90px;
+    text-align: center;
+    color: #ffffff !important;
+    font-weight: 500;
   }
   
   /* Mobile AI Process Flow - Reduced Spacing */
@@ -362,13 +458,7 @@
     backdrop-filter: blur(10px);
   }
   
-  .ai-process-flow h3 {
-    font-size: clamp(1.2rem, 4vw, 1.5rem);
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  
-  /* Mobile AI Workflow - Compact Design */
+  /* Mobile AI Workflow - Restored Scrolling */
   .ai-process-flow {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(248, 250, 252, 0.12) 100%) !important;
     backdrop-filter: blur(15px) !important;
@@ -376,7 +466,7 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
     border-radius: 16px !important;
     margin: 1.5rem 0 !important;
-    padding: 1.5rem 0.8rem !important;
+    padding: 1rem !important;
     overflow-x: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -386,14 +476,21 @@
     display: none;
   }
   
+  .ai-process-flow h3 {
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+    margin: 0 0 1rem 0;
+    text-align: center;
+    color: #ffffff !important;
+    font-weight: 600;
+  }
+  
   .process-steps {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    gap: 1.5rem;
-    padding: 0 1rem;
-    min-width: max-content;
-    width: fit-content;
+    align-items: center;
+    gap: 1rem;
+    min-width: 750px;
+    width: max-content;
   }
   
   .step {
@@ -438,7 +535,7 @@
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
     line-height: 1.3;
-    color: var(--text-color);
+    color: #ffffff !important;
     font-weight: 600;
   }
   
@@ -446,22 +543,23 @@
     font-size: 0.75rem;
     line-height: 1.4;
     margin: 0;
-    color: var(--text-light);
+    color: rgba(255, 255, 255, 0.8) !important;
   }
   
   .step-arrow {
-    position: absolute;
-    right: -0.5rem;
-    top: 50%;
-    transform: translateY(-50%);
     font-size: 1.4rem;
     color: var(--accent-color);
-    z-index: 2;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     opacity: 0.8;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
   }
   
-  .step:last-child .step-arrow {
+  .step:last-child + .step-arrow {
     display: none;
   }
   
@@ -473,23 +571,25 @@
   .feature-list li {
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    border-radius: 12px;
-    background: var(--background-white);
-    box-shadow: var(--shadow-md);
-    border-left: 4px solid var(--accent-color);
+    border-radius: 16px;
+    background: rgba(45, 55, 72, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(74, 144, 226, 0.3) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+    border-left: 4px solid var(--accent-color) !important;
   }
   
   .feature-list strong {
     font-size: 1.2rem;
     margin-bottom: 0.8rem;
     display: block;
-    color: var(--text-primary);
+    color: #ffffff !important;
   }
   
   .feature-list span {
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.8) !important;
   }
   
   /* Mobile Data Points Section - Enhanced Background */
@@ -520,15 +620,18 @@
   }
   
   .data-category {
-    padding: 1rem 0.8rem !important;
-    margin-bottom: 1rem !important;
+    padding: 0.8rem 0.5rem !important;
+    margin-bottom: 0.8rem !important;
   }
   
   .data-category h4 {
-    font-size: 0.85rem;
-    margin-bottom: 0.8rem;
-    color: var(--text-color);
-    font-weight: 600;
+    font-size: 1.1rem !important;
+    margin-bottom: 0.6rem !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    font-family: 'Inter', sans-serif !important;
   }
   
   .data-category ul {
@@ -537,17 +640,22 @@
   }
   
   .data-category li {
-    margin-bottom: 0.5rem;
-    font-size: 0.75rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
     line-height: 1.3;
-    padding-left: 0;
+    padding-left: 1rem;
     position: relative;
-    opacity: 0.8;
-    color: var(--text-light);
+    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.8) !important;
   }
   
   .data-category li::before {
-    display: none; /* Remove bullet points for simplicity */
+    content: '•';
+    color: var(--accent-color);
+    font-size: 1rem;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
   
   /* Mobile Services Section - Horizontal Grid */
@@ -575,19 +683,22 @@
   }
   
   .service-box h3 {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.2;
-    font-weight: 600;
-    color: var(--text-color);
+    font-size: 1.1rem !important;
+    margin-bottom: 0.6rem !important;
+    line-height: 1.3 !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    font-family: 'Inter', sans-serif !important;
   }
   
   .service-box p {
-    font-size: 0.75rem;
-    line-height: 1.3;
-    margin: 0;
-    opacity: 0.8;
-    color: var(--text-light);
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-align: center !important;
+    font-family: 'Inter', sans-serif !important;
   }
   
   /* Mobile Contact Section - Compact Grid Layout */
@@ -657,7 +768,7 @@
   
   .contact-item strong {
     font-size: 0.8rem;
-    color: var(--text-color);
+    color: #ffffff !important;
     margin-bottom: 0.3rem;
     display: block;
     font-weight: 600;
@@ -665,7 +776,7 @@
   
   .contact-item p {
     font-size: 0.7rem;
-    color: var(--text-light);
+    color: rgba(255, 255, 255, 0.8) !important;
     margin: 0;
     line-height: 1.2;
     opacity: 0.9;
@@ -708,9 +819,12 @@
   }
   
   .cta-button {
-    padding: 1rem 1.8rem;
-    font-size: 0.95rem;
-    max-width: 260px;
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+    max-width: 180px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   
   .card, .card-light {
