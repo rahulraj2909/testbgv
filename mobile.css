@@ -11,6 +11,29 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
   
+  /* Device Indicator - Mobile Override */
+  .desktop-indicator {
+    display: none !important; /* Hide desktop indicator on mobile */
+  }
+  
+  .mobile-indicator {
+    display: inline !important; /* Show mobile indicator on mobile */
+    color: #fff;
+  }
+  
+  .device-indicator {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.3rem;
+    font-size: 0.7rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 1001;
+  }
+  
   .menu-toggle {
     display: flex;
     width: 30px;
@@ -75,10 +98,11 @@
     transform: translateX(5px);
   }
   
-  /* Mobile Hero - Smooth Flow */
+  /* Mobile Hero - Fixed Layout */
   .hero {
-    min-height: 85vh;
-    padding: 2rem 1rem;
+    min-height: 100vh;
+    padding: 0;
+    position: relative;
     background: 
       url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png') center center / cover no-repeat,
       url('ChatGPT Image Aug 9, 2025, 07_48_15 PM.png') left center / cover no-repeat,
@@ -111,26 +135,34 @@
   }
   
   .hero-overlay {
-    padding-top: 1rem !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 75vh;
+    align-items: center;
+    padding: 8rem 2rem 4rem;
     text-align: center;
+    z-index: 2;
   }
   
   .hero-overlay h1 {
-    font-size: clamp(1.8rem, 7vw, 2.8rem);
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
     line-height: 1.3;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     margin-top: 0;
     text-align: center;
+    font-weight: 600;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   }
   
   .hero-overlay p {
-    font-size: clamp(1rem, 4vw, 1.2rem);
-    margin-bottom: 2rem;
-    line-height: 1.6;
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
   }
   
   .hero-cta {
@@ -146,37 +178,34 @@
     font-size: 1rem;
   }
   
-  /* Mobile Sections - Rich Background */
+  /* Mobile Sections - Reduced Spacing */
   .section {
-    padding: clamp(2rem, 6vw, 3rem) 1rem;
-    background: linear-gradient(135deg, rgba(26, 54, 93, 0.03) 0%, rgba(45, 55, 72, 0.05) 100%);
+    padding: clamp(1.5rem, 4vw, 2.5rem) 1rem;
+    background: transparent;
     margin-bottom: 0 !important;
+    position: relative;
   }
   
   .section + .section {
     margin-top: 0 !important;
-    padding-top: clamp(2rem, 6vw, 3rem);
   }
   
   body {
-    background: linear-gradient(135deg, rgba(26, 54, 93, 0.05) 0%, rgba(45, 55, 72, 0.08) 100%) !important;
+    background: linear-gradient(135deg, rgba(26, 54, 93, 0.08) 0%, rgba(45, 55, 72, 0.12) 100%) !important;
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
   }
   
-  /* Remove white backgrounds from cards on mobile */
-  .card-light {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%) !important;
-    backdrop-filter: blur(10px) !important;
-  }
-  
-  .service-box {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%) !important;
-    backdrop-filter: blur(10px) !important;
-  }
-  
-  .ai-feature-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%) !important;
-    backdrop-filter: blur(10px) !important;
+  /* Enhanced Card Styling - Transparent Glass Effect */
+  .card-light, .service-box, .ai-feature-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(248, 250, 252, 0.15) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    margin-bottom: 1.5rem !important;
+    border-radius: 16px !important;
   }
   
   .container {
@@ -184,44 +213,57 @@
     padding: 0 1rem;
   }
   
+  /* Enhanced Showcase Cards */
+  .data-points-showcase {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(248, 250, 252, 0.12) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 16px !important;
+    margin: 1.5rem 0 !important;
+    padding: 1.5rem 1rem !important;
+  }
+  
   .section-header {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     text-align: center;
   }
   
   .section-header h2 {
-    font-size: clamp(2rem, 8vw, 2.5rem);
-    margin-bottom: 1rem;
-    line-height: 1.2;
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
   }
   
   .section-header p {
-    font-size: clamp(1rem, 4vw, 1.1rem);
-    line-height: 1.6;
+    font-size: clamp(0.85rem, 3vw, 0.95rem);
+    line-height: 1.5;
     opacity: 0.8;
   }
   
-  /* Mobile Card Grid - Reduced Spacing */
+  /* Mobile Card Grid - Compact Spacing */
   .card-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
   }
   
   .card, .card-light {
-    padding: 1.8rem 1.5rem;
+    padding: 1.2rem 1rem;
     text-align: center;
     margin-bottom: 0 !important;
   }
   
-  .card h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+  .card h2, .card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
   }
   
   .card p {
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 0;
   }
   
   /* Mobile AI Features Grid - Reduced Spacing */
@@ -278,17 +320,23 @@
   }
   
   .ai-process-flow h3 {
-    font-size: clamp(1.5rem, 6vw, 2rem);
-    margin-bottom: 2.5rem;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    margin-bottom: 1.5rem;
+    text-align: center;
   }
   
-  /* Mobile AI Workflow - Smooth Horizontal Scroll */
+  /* Mobile AI Workflow - Compact Design */
   .ai-process-flow {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(248, 250, 252, 0.12) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 16px !important;
+    margin: 1.5rem 0 !important;
+    padding: 1.5rem 0.8rem !important;
     overflow-x: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    padding: 1rem 0;
-    margin: 2rem 0;
   }
   
   .ai-process-flow::-webkit-scrollbar {
@@ -307,17 +355,17 @@
   
   .step {
     flex: 0 0 auto;
-    width: 180px;
+    width: 160px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
-    padding: 1.5rem 1rem;
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(248, 250, 252, 0.25) 100%);
+    padding: 1.2rem 1rem;
+    border-radius: 12px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     position: relative;
     transition: all 0.3s ease;
   }
@@ -328,10 +376,10 @@
   }
   
   .step-number {
-    width: 60px;
-    height: 60px;
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
     flex-shrink: 0;
     background: linear-gradient(135deg, var(--accent-color), #4A90E2);
     color: white;
@@ -340,19 +388,19 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    box-shadow: 0 6px 15px rgba(74, 144, 226, 0.3);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
   }
   
   .step-content h4 {
-    font-size: 1rem;
-    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
     line-height: 1.3;
     color: var(--text-color);
     font-weight: 600;
   }
   
   .step-content p {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     line-height: 1.4;
     margin: 0;
     color: var(--text-light);
@@ -428,9 +476,10 @@
   }
   
   .data-category h4 {
-    font-size: 1.3rem;
-    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
     color: var(--text-primary);
+    font-weight: 600;
   }
   
   .data-category ul {
@@ -438,10 +487,10 @@
   }
   
   .data-category li {
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    padding-left: 1.2rem;
     position: relative;
   }
   
