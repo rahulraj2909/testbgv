@@ -20,6 +20,105 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* COMPREHENSIVE Desktop-specific overrides - MAXIMUM SPECIFICITY */
+@media screen and (min-width: 769px) {
+  /* FORCE Desktop Background */
+  html body {
+    background: var(--background-light) !important;
+    color: var(--text-primary) !important;
+  }
+  
+  /* ALL CARD TYPES - Dark Blue Theme - ULTRA SPECIFIC */
+  body .card, 
+  body .data-category, 
+  body .service-box, 
+  body .ai-feature-card,
+  body .step,
+  body .feature-list li,
+  body .contact-item,
+  body .stat,
+  .container .card,
+  .container .data-category,
+  .container .service-box,
+  .container .ai-feature-card,
+  .container .step,
+  .container .feature-list li,
+  .container .contact-item,
+  .container .stat {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%) !important;
+    color: white !important;
+    box-shadow: var(--shadow-lg) !important;
+    border-radius: var(--border-radius) !important;
+    padding: 2rem !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  /* White Cards Stay White */
+  .card-light {
+    background: var(--background-white) !important;
+    color: var(--text-primary) !important;
+    box-shadow: var(--shadow-md) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    border-radius: var(--border-radius) !important;
+    padding: 2rem !important;
+  }
+  
+  /* Special Borders for Data Categories */
+  .data-category {
+    border-left: 4px solid var(--accent-light) !important;
+  }
+  
+  /* ALL TEXT COLORS in Dark Cards - ULTRA SPECIFIC */
+  body .card h2, body .card h3, body .card h4, body .card p,
+  body .data-category h2, body .data-category h3, body .data-category h4, body .data-category p, body .data-category li,
+  body .service-box h2, body .service-box h3, body .service-box h4, body .service-box p,
+  body .ai-feature-card h2, body .ai-feature-card h3, body .ai-feature-card h4, body .ai-feature-card p,
+  body .step h2, body .step h3, body .step h4, body .step p,
+  body .feature-list li strong, body .feature-list li span,
+  body .contact-item strong, body .contact-item p,
+  body .stat strong, body .stat span,
+  .container .card h2, .container .card h3, .container .card h4, .container .card p,
+  .container .data-category h2, .container .data-category h3, .container .data-category h4, .container .data-category p, .container .data-category li,
+  .container .service-box h2, .container .service-box h3, .container .service-box h4, .container .service-box p,
+  .container .ai-feature-card h2, .container .ai-feature-card h3, .container .ai-feature-card h4, .container .ai-feature-card p,
+  .container .step h2, .container .step h3, .container .step h4, .container .step p,
+  .container .feature-list li strong, .container .feature-list li span,
+  .container .contact-item strong, .container .contact-item p,
+  .container .stat strong, .container .stat span {
+    color: white !important;
+  }
+  
+  /* Light text for readability - ULTRA SPECIFIC */
+  body .card p, body .data-category li, body .service-box p, body .ai-feature-card p, body .step p, body .feature-list li span, body .contact-item p, body .stat span,
+  .container .card p, .container .data-category li, .container .service-box p, .container .ai-feature-card p, .container .step p, .container .feature-list li span, .container .contact-item p, .container .stat span {
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+  
+  /* Contact Section - Keep Light Background */
+  .contact-info .card-light,
+  .contact-info-section .card-light {
+    background: var(--background-white) !important;
+    color: var(--text-primary) !important;
+  }
+  
+  .contact-info .card-light h3, 
+  .contact-info .card-light p,
+  .contact-info-section .card-light h3,
+  .contact-info-section .card-light p {
+    color: var(--text-primary) !important;
+  }
+  
+  /* Data Points Showcase Background */
+  .data-points-showcase {
+    background: linear-gradient(135deg, rgba(49, 130, 206, 0.05), rgba(99, 179, 237, 0.05)) !important;
+    border: 1px solid rgba(49, 130, 206, 0.1) !important;
+    border-radius: var(--border-radius) !important;
+    padding: 3rem 2rem !important;
+  }
+}
+
 /* Basic Reset & Global Styles */
 * {
   margin: 0;
@@ -746,14 +845,14 @@ nav a:hover::before {
 .data-categories {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .data-category {
   background: var(--background-white);
   border-radius: var(--border-radius);
-  padding: 2rem;
+  padding: 1.5rem;
   box-shadow: var(--shadow-md);
   transition: var(--transition);
   border-left: 4px solid var(--accent-color);
@@ -765,10 +864,10 @@ nav a:hover::before {
 }
 
 .data-category h4 {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -782,10 +881,10 @@ nav a:hover::before {
 
 .data-category ul li {
   position: relative;
-  padding: 0.5rem 0 0.5rem 1.5rem;
+  padding: 0.4rem 0 0.4rem 1.2rem;
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.4;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -1011,10 +1110,7 @@ body.loaded {
     grid-template-columns: 1fr;
   }
   
-  .section h2::after {
-    left: 0;
-    transform: none;
-  }
+  /* Removed conflicting underline rule to prevent prefix issue */
   
   .section-header {
     text-align: left;
