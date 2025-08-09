@@ -58,6 +58,29 @@ header {
   transition: var(--transition);
 }
 
+/* Device Indicator - Desktop */
+.device-indicator {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1001;
+}
+
+.mobile-indicator {
+  display: none; /* Hide mobile indicator on desktop */
+}
+
+.desktop-indicator {
+  display: inline; /* Show desktop indicator on desktop */
+  color: #fff;
+}
+
 header.scrolled {
   background: rgba(26, 54, 93, 0.98);
   box-shadow: var(--shadow-lg);
